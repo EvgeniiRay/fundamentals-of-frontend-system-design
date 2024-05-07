@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Frontend System Design Fundamentals</title>
+    <link rel="stylesheet" href="../../styles/index.css">
+</head>
+<body>
+<main id="container">
+    <div id="list"></div>
+    <div id="bottom-observer">
+        Bottom Observer
+    </div>
+</main>
+<script type="module">
+    import {initMockDB} from "../../utils/db.js";
+    function createCardElement(title, body) {
+        const template = document.getElementById('card_template');
+        const element = template.content.cloneNode(true).firstElementChild;
+        const [cardTitle] = element.getElementsByTagName("h3");
+        const [cardBody] = element.getElementsByTagName("section");
+        [cardTitle.textContent, cardBody.textContent] = [title, body];
+        return element;
+    }
+    function getHeading(node) {
+        let element = node;
+        if(node.textContent.startsWith("/h3")) {
+            element = document.createElement("h3");
+        } else if(node.textContent.startsWith("/h2")) {
+            element = document.createElement("h2");
+        } else if(node.textContent.startsWith("/h1")) {
+            element = document.createElement("h1");
+        }
+        if(element !== node) {
+            element.textContent = node.textContent.slice(3);
+        }
+        return element;
+    }
+
+    const db = initMockDB({
+        title: "Fundamentals of Frontend System Design",
+        body: "Learning to use Intersection Observer"
+    });
+    const list = document.getElementById('list');
+    const observerElement = document.getElementById('bottom-observer');
+    const mutationObserver = new MutationObserver((mutations) => {
+        for(let mutation of mutations) {
+            const target = mutation.target;
+            if(mutation.type === 'characterData' && target.textContent.startsWith("/h")) {
+                const element = getHeading(target);
+                if(element !== target) {
+                    target.replaceWith(element);
+                    element.textContent = element.textContent === '' ? 'Heading!' : element.textContent;
+                    element.setAttribute('contenteditable', true)
+                    element.focus()
+                }
+            }
+        }
+    })
+    const observer = new IntersectionObserver(async ([bottom]) => {
+        if (bottom.isIntersecting) {
+            observerElement.textContent = "Loading";
+            const data = await db.next();
+            const fragment = new DocumentFragment();
+            data.forEach(({title, body}) => {
+                const card = createCardElement(title, body);
+                const cardBody = card.querySelector('section');
+                mutationObserver.observe(cardBody, {
+                    characterData: true,
+                    subtree: true
+                });
+                fragment.appendChild(card)
+            });
+            list.appendChild(fragment)
+        }
+    }, {threshold: 0.1})
+    observer.observe(observerElement);
+</script>
+</body>
+</html>
