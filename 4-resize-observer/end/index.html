@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Frontend System Design Fundamentals</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            height: 100vh
+        }
+        #container {
+            margin: 0 auto;
+            width: 600px;
+            display:grid;
+            grid-template-columns: 50% 50%;
+            grid-row-gap: 2rem;
+            grid-column-gap: 2rem;
+        }
+        .box {
+            margin: 2rem;
+            width: 100%;
+            min-width: 100px;
+            min-height: 100px;
+            height: 100%;
+            border: 2px solid black;
+            resize: both;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .box:nth-child(1) {
+            background: rgba(0, 255, 0, 0.5);
+        }
+        .box:nth-child(2) {
+            background: rgba(255, 255, 0, 0.5);
+        }
+        .box:nth-child(3) {
+            background: rgba(255, 0, 0, 0.5);
+        }
+        .box:nth-child(4) {
+            background: rgba(0, 0, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+<main id="container">
+    <div class="box">
+        A
+    </div>
+    <div class="box">
+        B
+    </div>
+    <div class="box">
+        C
+    </div>
+    <div class="box">
+        D
+    </div>
+</main>
+<script type="module">
+ const observer = new ResizeObserver((entries) => {
+     for(let entry of entries) {
+         const {borderBoxSize: [{inlineSize, blockSize}], target} = entry;
+         console.log(inlineSize, blockSize)
+         if(inlineSize < 150 && blockSize < 150) {
+            target.style.borderRadius = "100%";
+            target.style.borderWidth = "4px"
+        } else {
+            target.style.borderRadius = "unset";
+            target.style.borderWidth = "unset"
+        }
+     }
+ })
+ const elements = document.querySelectorAll('.box');
+ elements.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
