@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Frontend System Design Fundamentals</title>
+    <link rel="stylesheet" href="../../styles/index.css">
+    <template id="card_template">
+        <article class="card">
+            <h3></h3>
+            <div class="card__body">
+                <div class='card__body__image'></div>
+                <section class='card__body__content'>
+                </section>
+            </div>
+        </article>
+    </template>
+</head>
+<body>
+<main id="container">
+    <div id="list"></div>
+    <div id="bottom-observer">
+        Bottom Observer
+    </div>
+</main>
+<script type="module">
+    import {initMockDB} from "../../utils/db.js";
+    const db = initMockDB({
+        title: "Fundamentals of Frontend System Design",
+        body: "Learning to use Intersection Observer"
+    });
+    const list = document.getElementById('list');
+    const observerElement = document.getElementById('bottom-observer');
+    const observer = new IntersectionObserver(async ([bottom]) => {
+        if (bottom.isIntersecting) {
+            observerElement.textContent = "Loading";
+            const data = await db.next();
+            const fragment = new DocumentFragment();
+            data.forEach(({title, body}) =>
+                fragment.appendChild(createCardElement(title, body))
+            );
+            list.appendChild(fragment)
+        }
+    }, {threshold: 0.1})
+    observer.observe(observerElement);
+    function createCardElement(title, body) {
+        const template = document.getElementById('card_template');
+        const element = template.content.cloneNode(true).firstElementChild;
+        const [cardTitle] = element.getElementsByTagName("h3");
+        const [cardBody] = element.getElementsByTagName("section");
+        [cardTitle.textContent, cardBody.textContent] = [title, body];
+        return element;
+    }
+</script>
+</body>
+</html>
