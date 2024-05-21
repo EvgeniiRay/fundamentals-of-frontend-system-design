@@ -40,10 +40,13 @@
     const observerElement = document.getElementById('bottom-observer');
 
     const mutationObserver = new MutationObserver((mutations) => {
-        for (const mut of mutations) {
-            if (mut.type === 'characterData' && SUPPORTED_ELEMENTS.has(mut.target?.textContent)) {
-                const element = getHeading(mut.target);
-                mut.target.replaceWith(element);
+        for (const {target, type} of mutations) {
+            if (
+                type === 'characterData' &&
+                SUPPORTED_ELEMENTS.has(target?.textContent)
+            ) {
+                const element = getHeading(target);
+                target.replaceWith(element);
                 element.focus();
             }
         }
