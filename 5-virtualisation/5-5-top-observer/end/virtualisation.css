@@ -1,0 +1,20 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+.card {
+    position: absolute;
+    width: 100%;
+    margin: 2rem;
+    padding: 1.5rem 2rem;
+    border: 8px solid lightgray;
+    border-radius: 2rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+#virtual-list {
+    position: relative;
+}
