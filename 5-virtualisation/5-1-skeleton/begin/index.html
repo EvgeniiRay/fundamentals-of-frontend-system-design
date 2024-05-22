@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Virtualization</title>
+    <template id="card_template">
+        <article class="card">
+            <h3></h3>
+            <div class="card__body">
+                <div class='card__body__image'></div>
+                <section class='card__body__content' contenteditable="true">
+                </section>
+            </div>
+        </article>
+    </template>
+</head>
+<body>
+</body>
+<script type="module">
+    import {VirtualList} from "./virtual-list.js";
+    const container = document.body;
+    const list = new VirtualList(container, {});
+    list.render();
+</script>
+</html>
