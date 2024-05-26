@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Virtualization</title>
+    <link rel="stylesheet" href="../../../styles/index.css">
+    <link rel="stylesheet" href="./virtualisation.css">
+    <template id="card_template">
+        <article class="card">
+            <h3 class="card__body__title"></h3>
+            <div class="card__body">
+                <div class='card__body__image'></div>
+                <section class='card__body__content' contenteditable="true">
+                </section>
+            </div>
+        </article>
+    </template>
+</head>
+<body>
+</body>
+<script type="module">
+    import {VirtualList} from "./virtual-list.js";
+    const container = document.body;
+    const template = document.getElementById('card_template')
+
+    function createOrUpdateCard(datum, template) {
+        return null;
+    }
+
+    const list = new VirtualList(container, {
+        getPage: null,
+        getTemplate: null,
+        pageSize: null,
+        updateTemplate: null
+    });
+    list.render();
+</script>
+</html>
