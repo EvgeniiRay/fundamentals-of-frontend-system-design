@@ -1,0 +1,30 @@
+/**
+ * Part 3 - Rendering elements on bottom observer callback
+ *
+ * Define property model of VirtualList component
+
+ * 1. `getPage`        - A function that retrieves data for a given page number.
+
+ * 2. `pageSize`       - A variable that determines how many elements to render, helping us understand the scope of each data chunk.
+
+ * 3. `getTemplate`    - A function that takes a piece of data (datum) and returns an HTMLElement. This allows for flexible visual representation of each item.
+
+ * 4. `updateTemplate` - updates an HTMLElement with new data.
+
+
+ * Load new elements
+ * 1. Open index.html
+
+ * 2. Create getTemplate and updateTemplate functions
+
+ * 3. Init virtual list with a new set of properties
+
+ * 4. Define "start" and "end" state variables on the Virtual List class. These variable will track
+      the "window" / "slice" of the data that's currently rendered
+
+ * 5. Fetch data on bottom observer intersection
+
+ * 6. Append new card elements
+ */
+
+ Stuck? - 5.3-property-model-and-loading-end branch

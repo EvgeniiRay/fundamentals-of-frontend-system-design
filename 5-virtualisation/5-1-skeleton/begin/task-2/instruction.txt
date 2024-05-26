@@ -1,0 +1,21 @@
+/**
+ * Part 2 - Register Bottom Observer
+ *
+ * Use Reference picture: goal.gif
+ *
+ * 1. Create a IntersectionObserver callback #handleIntersectionObserver in VirtualList class
+
+ * 2. Within callback, extract id of the target element from the intersection entry (entry.target)
+
+ * 3. based on the id (bottom or top) - run required callback:
+ *    3.1 Create empty handleTopObserver method
+ *    3.2 Create empty handleBottomObserver method
+
+ * 4. Inside #effect method, register the observer.
+ *    4.1 Use intersectionObserver utility function
+ *    4.2 First argument takes elements to track
+ *    4.3 Second argument is a callback that you defined - #handleIntersectionObserver
+ *    4.4 Config options, provide { root: <container> , threshold: 0.2 } as configuration
+ */
+
+ Stuck? - 5.2-observer-handling-end branch

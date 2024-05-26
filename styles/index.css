@@ -30,13 +30,20 @@
     padding: 0 1rem;
 }
 
+#top-observer {
+    background: rgba(0, 0, 255, 0.2);
+    border: 2px dashed  rgba(0, 0, 255, 0.2);
+}
 #bottom-observer {
+    background: rgba(255, 0, 0, 0.2);
+    border: 2px dashed  rgba(255, 0, 0, 0.6);
+}
+#top-observer, #bottom-observer {
     width: 100%;
     height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 0, 0, 0.2);
-    border: 2px dashed  rgba(255, 0, 0, 0.6);
+    margin: 0 2rem;
 }

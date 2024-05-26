@@ -1,0 +1,11 @@
+/**
+ * Part 6 - Top Transitioning
+ *
+ * 1. Update updateElement method for top recycling
+ *   - it should cycle through all pool elements
+ *   - Card (N - 1) should be assigned with Card(N) - y position
+ *   - Use data-attributes to store positioning info
+ * 2. Use CSS Transform to move elements down
+ */
+
+ Stuck? - 5-5-top-observer-end

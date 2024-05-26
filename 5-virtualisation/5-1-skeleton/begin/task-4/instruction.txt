@@ -1,0 +1,18 @@
+/**
+ * Part 4 - Creating element pool - Preparation phase
+ *
+ * 1. Create an array "pool" as a state variable
+
+ * 2. Define "poolLimit" variable which is equal "pageSize * 2"
+
+ * 3. Update #handleBottomObserver:
+
+ *   - When pool size exceeds limit - push items [0, pageSize] to the end
+
+ *   - Update items with a new method - updateData - it should cycle through elements that were moved
+ *     and call the template update callback
+
+ *   - Increase -start- counter by 1 since we moved to page + 1
+ */
+
+ Stuck? - 5-4-1-elements-pool-and-recycling-preparation-end

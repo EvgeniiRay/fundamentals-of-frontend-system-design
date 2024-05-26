@@ -1,0 +1,5 @@
+1. Update toHTML of virtual-list.js to return the structure described in goal.png
+2. Run index.html to see if we render it
+
+Stuck?
+Check-out branch 5-1-virtualization-skeleton-end

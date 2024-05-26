@@ -1,0 +1,16 @@
+/**
+ * Part 5 - Bottom Transitioning of updated elements
+ *
+ * 1. Move card elements to stacking context by rendering the as absolutely positioned items
+
+ * 2. #virtual-list should become relative container for card elements
+
+ * 3. Implement updateElement method for bottom recycling
+ *   - it should cycle through all pool elements
+ *   - Card (N + 1) should be assigned with Card(N) - y position
+ *   - Use data-attributes to store positioning info
+
+ *  4. Use CSS Transform to move elements down
+ */
+
+ Stuck? - 5-4-2-elements-pool-and-recycing-rendering-end
