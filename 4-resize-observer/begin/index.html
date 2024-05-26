@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Frontend System Design Fundamentals</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            height: 100vh
+        }
+        #container {
+            margin: 0 auto;
+            width: 600px;
+            display:grid;
+            grid-template-columns: 50% 50%;
+            grid-row-gap: 2rem;
+            grid-column-gap: 2rem;
+        }
+        .box {
+            margin: 2rem;
+            width: 100%;
+            min-width: 100px;
+            min-height: 100px;
+            height: 100%;
+            border: 2px solid black;
+            resize: both;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .box:nth-child(1) {
+            background: rgba(0, 255, 0, 0.5);
+        }
+        .box:nth-child(2) {
+            background: rgba(255, 255, 0, 0.5);
+        }
+        .box:nth-child(3) {
+            background: rgba(255, 0, 0, 0.5);
+        }
+        .box:nth-child(4) {
+            background: rgba(0, 0, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+<main id="container">
+    <div class="box">
+        A
+    </div>
+    <div class="box">
+        B
+    </div>
+    <div class="box">
+        C
+    </div>
+    <div class="box">
+        D
+    </div>
+</main>
+<script type="module">
+    /*
+     * 1. Initiate Resize observer
+     * 2. Implement callback - use inlineSize and blockSize of the entries for width and height
+     * 3. If width and height is less than 150px
+     *   3.1 - Apply border-radius: 100%
+     *   3.2 - Apply border-width: 4px
+     * 4. If width and height is more than 150px = unset the properties above
+     * 5. All 4 boxes should use same observer
+     */
+</script>
+</body>
+</html>
