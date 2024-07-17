@@ -1,6 +1,5 @@
-# Front-End System Design
+# Front-End System Design Course
 
-## Front-End System Design Course on Frontend Masters
 This is a companion repository for the [Front-End System Design](https://frontendmasters.com/courses/frontend-system-design) course on Frontend Masters.
 [![Frontend Masters](https://static.frontendmasters.com/assets/brand/logos/full.png)](https://frontendmasters.com/courses/frontend-system-design)
 
