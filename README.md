@@ -1,7 +1,9 @@
-# Fundamentals of frontend system design
+# Front-End System Design
 
-This a repo for the course published on Frontend Masters
-https://frontendmasters.com/workshops/systems-design/
+## Front-End System Design Course on Frontend Masters
+This is a companion repository for the [Front-End System Design](https://frontendmasters.com/courses/frontend-system-design) course on Frontend Masters.
+[![Frontend Masters](https://static.frontendmasters.com/assets/brand/logos/full.png)](https://frontendmasters.com/courses/frontend-system-design)
+
 ## How to use the repo
 Check-out a specific branch as you follow the workshop exercises.
 Repo doesn't use any bundler or frameworks. So opening `index.html` in chrome
@@ -21,5 +23,9 @@ to the exercise go to the branch with `end` prefix.
 8. `5.4-1-elements-pool-and-recycling-begin` - Introducing HTMLElement pool
 9. `5.4.2-elements-pool-and-recycling-rendering-begin` - Utilizing CSS Transformation to move elements around
 10. `5.5-top-observer-begin` - Handle top virtualization
+
+## View All Exercises & Solutions
+
+You can check out the `5-6-scroll-preservation-end` branch to see all the `begin` and `end` directories to avoid switching branches for each exercise.
 
 Good luck!
