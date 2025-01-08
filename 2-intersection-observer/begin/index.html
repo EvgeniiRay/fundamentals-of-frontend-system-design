@@ -47,8 +47,21 @@
      * 4. Update fragment
      * 5. Append fragment to "list" container
      */
-    const observer = null;
+    let page=0;
+    const observer = new IntersectionObserver( async([entry])=>{
+        if(entry.isIntersecting){
+            const data = await db.getPage(page++);
+            const fragment = new DocumentFragment();
+            for(const datum of data){
+                const card = createCardElement(datum.title, datum.body);
+                fragment.appendChild(card);
+            }
+            list.appendChild(fragment);
+        }
+    },{threshold: 0.2});
 
+    observer.observe(observerElement);
+    
 </script>
 </body>
 </html>
